@@ -9,14 +9,6 @@ pub struct Entity {
 
 static BASE_ID: AtomicU64 = AtomicU64::new(0);
 
-impl PartialEq<Self> for Entity {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id
-    }
-}
-
-impl Eq for Entity {}
-
 impl Entity {
     pub fn new<S>(name: S) -> Self
     where
@@ -56,3 +48,11 @@ impl Entity {
         id
     }
 }
+
+impl PartialEq<Self> for Entity {
+    fn eq(&self, other: &Self) -> bool {
+        self.id == other.id
+    }
+}
+
+impl Eq for Entity {}
